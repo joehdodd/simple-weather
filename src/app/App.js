@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import Current from "../features/current/Current";
 import Forecast from "../features/forecast/Forecast";
-import { createUseStyles } from 'react-jss';
+import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   wrapper: {
-    padding: "16px 15%",
-    height: "100vh",
-  }
+    padding: 16,
+    margin: "5% 25%",
+    borderRadius: 4,
+    backgroundColor: "#fff",
+    boxShadow: "0px 4px 4px 2px rgba(0,0,0,0.5)",
+  },
 });
 
 function App() {

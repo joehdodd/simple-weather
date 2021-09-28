@@ -51,10 +51,14 @@ const Current = ({ coords }) => {
             />
           )}
           <div>
-            <span className={classes.currentHeaderText}>
-              {current.main && Math.round(current.main.temp)}
-            </span>
-            <span className={classes.currentDegrees}>&deg; F</span>
+            {current.main && (
+              <>
+                <span className={classes.currentHeaderText}>
+                  {Math.round(current.main.temp)}
+                </span>
+                <span className={classes.currentDegrees}>&deg; F</span>
+              </>
+            )}
           </div>
         </div>
         <span className={classes.currentHeaderText}>
