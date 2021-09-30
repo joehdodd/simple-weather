@@ -28,7 +28,7 @@ const Forecast = ({ coords }) => {
       dispatch(fetchForecast(coords));
     }
   }, [dispatch, coords]);
-  console.log("forecast", forecast);
+
   return (
     <div>
       <div className={classes.forecastContainer}>
