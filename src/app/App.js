@@ -44,8 +44,6 @@ function App() {
     console.log("value", value);
   };
   const debouncedSearch = useMemo(() => debounce(getLocation, 1000), []);
-
-
   useEffect(() => {
     if (searchValue) {
       debouncedSearch(searchValue);
