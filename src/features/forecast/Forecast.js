@@ -47,7 +47,7 @@ const Forecast = ({ coords }) => {
               </h3>
               <img
                 style={{ maxWidth: 50 }}
-                src={`http://openweathermap.org/img/wn/${listItem.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${listItem.weather[0].icon}@2x.png`}
                 alt={listItem.weather.main}
               />
               <div>
