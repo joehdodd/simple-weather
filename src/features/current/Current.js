@@ -12,7 +12,10 @@ const useStyles = createUseStyles({
   },
   currentDetailsContainer: {
     display: "grid",
-    gridAutoFlow: "column",
+    gridAutoFlow: "row",
+    "@media screen and (min-width: 768px)": {
+      gridAutoFlow: "column",
+    },
     alignItems: "start",
     gridGap: 8,
   },
@@ -27,10 +30,10 @@ const useStyles = createUseStyles({
   currentHeaderText: {
     fontSize: 32,
     fontWeight: 700,
+    textOverflow: "ellipsis",
   },
   currentHeaderSubtext: {
     fontSize: 12,
-    justifySelf: "flex-end",
   },
   currentDegrees: {
     fontSize: 16,
@@ -60,6 +63,17 @@ const Current = ({ coords }) => {
   return (
     <div>
       <div className={classes.currentHeader}>
+        <div className={classes.currentHeaderTextContainer}>
+          <span className={classes.currentHeaderText}>{current.name}</span>
+          {!!current.weather && (
+            <span className={classes.currentHeaderSubtext}>
+              {current.weather[0].main}
+            </span>
+          )}
+          <span className={classes.currentHeaderSubtext}>
+            {!!current.dt && moment(current.dt * 1000).format("dddd, hh:mm A")}
+          </span>
+        </div>
         <div className={classes.currentConditions}>
           {!!current.weather && (
             <img
@@ -86,17 +100,6 @@ const Current = ({ coords }) => {
               </div>
             </div>
           )}
-        </div>
-        <div className={classes.currentHeaderTextContainer}>
-          <span className={classes.currentHeaderText}>{current.name}</span>
-          {!!current.weather && (
-            <span className={classes.currentHeaderSubtext}>
-              {current.weather[0].main}
-            </span>
-          )}
-          <span className={classes.currentHeaderSubtext}>
-            {moment(current.dt * 1000).format("dddd, hh:mm A")}
-          </span>
         </div>
       </div>
     </div>

@@ -30,7 +30,10 @@ const useStyles = createUseStyles({
   },
   searchResults: {
     padding: 8,
-    width: "24rem",
+    width: "12rem",
+    "@media screen and (min-width: 768px)": {
+      width: "24rem",
+    },
     maxHeight: "12rem",
     overflowY: "scroll",
     position: "absolute",

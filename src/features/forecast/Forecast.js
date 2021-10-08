@@ -7,7 +7,14 @@ import moment from "moment";
 const useStyles = createUseStyles({
   forecastContainer: {
     display: "grid",
-    gridAutoFlow: "column",
+    gridTemplateColumns: "1fr 1fr",
+    gridTemplateRows: "repeat(7, 1fr)",
+    justifyContent: "start",
+    "@media screen and (min-width: 768px)": {
+      gridTemplateRows: "none",
+      gridTemplateColumns: "repeat(7, 1fr)",
+      justifyContent: "space-between",
+    },
   },
   dayContainer: {
     display: "grid",
@@ -34,7 +41,7 @@ const Forecast = ({ coords }) => {
       <div className={classes.forecastContainer}>
         {!!forecast.list &&
           forecast.list.map((listItem) => (
-            <div className={classes.dayContainer}>
+            <div key={listItem.dt} className={classes.dayContainer}>
               <h3 style={{ marginBottom: 0 }}>
                 {!!listItem.dt && moment(listItem.dt * 1000).format("ddd")}
               </h3>
