@@ -7,13 +7,20 @@ import { debounce } from "lodash";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const useStyles = createUseStyles({
+  "@global": {
+    body: {
+      "@media screen and (min-width: 768px)": {
+        backgroundColor: "#F5F6FA",
+      },
+    },
+  },
   wrapper: {
-    padding: 16,
-    borderRadius: 4,
     margin: "2.5%",
     backgroundColor: "#fff",
-    boxShadow: "0px 8px 12px 0px rgba(0,0,0,0.5)",
     "@media screen and (min-width: 768px)": {
+      borderRadius: 4,
+      padding: 16,
+      boxShadow: "0px 8px 12px 0px rgba(0,0,0,0.5)",
       margin: "5% 12.5%",
     },
     "@media screen and (min-width: 1024px)": {
@@ -24,7 +31,10 @@ const useStyles = createUseStyles({
     position: "relative",
     marginBottom: 16,
     display: "grid",
-    gridTemplateColumns: "2fr 1fr",
+    gridAutoFlow: "column",
+    "@media screen and (min-width: 768px)": {
+      gridTemplateColumns: "2fr 1fr",
+    },
     alignItems: "center",
     justifyContent: "space-between",
   },
